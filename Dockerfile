@@ -10,8 +10,9 @@ RUN add-apt-repository 'deb http://mirror3.layerjet.com/mariadb/repo/5.5/debian 
 RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y rsync mariadb-galera-server
 ADD galera.cnf /etc/mysql/conf.d/galera.cnf
-RUN wget https://dl.bintray.com/mitchellh/consul/0.5.1_linux_amd64.zip
-RUN unzip 0.5.1_linux_amd64.zip
+RUN wget https://dl.bintray.com/mitchellh/consul/0.5.2_linux_amd64.zip
+RUN wget https://dl.bintray.com/mitchellh/consul/0.5.2_web_ui.zip
+RUN unzip 0.5.2_linux_amd64.zip && unzip 0.5.2_web_ui.zip
 RUN mv consul /usr/local/sbin/
 RUN chmod +x /usr/local/sbin/consul
 RUN mkdir /etc/consul.d
