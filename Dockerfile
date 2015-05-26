@@ -1,5 +1,8 @@
 FROM ubuntu:latest
 MAINTAINER Scott P. Gallagher <sgallag@gmail.com>
+ENV MARIADB_USER wordpressmu
+ENV MARIADB_PASSWORD password
+ENV MARIADB_DATABASE wordpressmu
 RUN apt-get update && apt-get install -y wget unzip python-software-properties software-properties-common
 RUN apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb943db
 RUN add-apt-repository 'deb http://mirror3.layerjet.com/mariadb/repo/5.5/debian wheezy main'
