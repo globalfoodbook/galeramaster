@@ -16,6 +16,9 @@ RUN chmod +x /usr/local/sbin/consul
 RUN mkdir /etc/consul.d
 RUN echo '{"service": {"name": "mysql", "tags": ["mysql"], "port": 3306}}' > /etc/consul.d/mysql.json
 EXPOSE 3306 4444 4567 4568 8300 8301 8301/udp 8302 8302/udp 8400 8500 53 53/udp
+ADD mysql.sh /mysql.sh
+RUN chmod +x /mysql.sh
+RUN "./mysql.sh"
 ADD entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 CMD ["/entrypoint.sh"]
